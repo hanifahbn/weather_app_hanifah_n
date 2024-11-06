@@ -119,11 +119,6 @@ class SettingsProvider with ChangeNotifier {
     weatherProvider.loadWeatherData(context);
   }
 
-  // void toggleDarkMode() {
-  //   _settings.isDarkMode = !_settings.isDarkMode;
-  //   saveSettings();
-  // }
-
   void toggleDarkMode() {
     _settings.isDarkMode = !_settings.isDarkMode;
     AppColors.isDarkMode = _settings.isDarkMode;

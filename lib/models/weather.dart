@@ -69,28 +69,10 @@ class Weather {
       city: '',
       hourlyForecast: [],
       day: DateFormat('EEEE').format(DateTime.parse(json['date'] ?? DateTime.now().toString())),
-      date: DateFormat('d MMMM y').format(parsedDate),
+      date: DateFormat('d MMMM y').format(DateTime.parse(json['date'] ?? DateTime.now().toString())),
       precipitation: (day['totalprecip_mm'] ?? 0.0).toDouble(),
       visibility: (day['avgvis_km'] ?? 0.0).toDouble(),
     );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'temperature': temperature,
-      'humidity': humidity,
-      'windSpeed': windSpeed,
-      'condition': condition,
-      'city': city,
-      'hourlyForecast': hourlyForecast.map((hour) => {
-        'time': hour['time'],
-        'temperature': hour['temperature'],
-      }).toList(),
-      'day': day,
-      'date': date,
-      'precipitation': precipitation,
-      'visibility': visibility,
-    };
   }
 
 }
